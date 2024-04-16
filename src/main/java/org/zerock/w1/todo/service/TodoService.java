@@ -5,9 +5,8 @@ import org.zerock.w1.todo.dto.TodoDTO;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
+// CRUD 할일 목록 조회,할일 하나 조회, 할일 등록
 public enum TodoService {
     //싱글턴 패턴으로 하나의 객체만을 만듬
     INSTANCE;
@@ -30,4 +29,16 @@ public enum TodoService {
 
         return todoDTOS;
     }
+
+    //할일 한개 가져오기
+    public TodoDTO get(Long tno){
+        TodoDTO dto = new TodoDTO();
+        dto.setTno(tno);
+        dto.setTitle("샘플 할일");
+        dto.setDueDate(LocalDate.now());
+        dto.setFinished(true);
+
+        return dto;
+    }
+
 }
